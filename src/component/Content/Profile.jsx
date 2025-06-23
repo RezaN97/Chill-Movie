@@ -68,10 +68,12 @@ const FormProfile = () =>{
     
       const handleSave = () => {
         setShowInput(true)
+        setFormData({ username: '', email: '', password:''})
       };
 
       const handleEdit = () => {
-        setShowInput(false)
+        setShowInput(true)
+
       }
 
     const handleDelete = () => {

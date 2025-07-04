@@ -3,16 +3,18 @@ import google from '../img/google-btn.png'
 import showEye from '../img/eye-off.png'
 import { NavLink } from 'react-router'
 import { useNavigate } from 'react-router'
+// import AxiosTesting from './api/axios'
 
-const SignIn = () => {
+const Login = () => {
+  
     const navigate = useNavigate()
     return (
 
     <>
     {/* Mobile screen */}
-    <div className="bg-[url('/src/img/bg/bg-1.png')] bg-center bg-no-repeat bg-cover">
-
-        <div className="sm:hidden font-Lato  bg-[#181A1C]/60 flex flex-col justify-evenly items-center w-[306px] h-[452.28px] text-white  p-[24px] rounded-sm ">
+    <div className="bg-[url('/src/img/bg/bg-1.png')] bg-center bg-no-repeat bg-cover ">
+        <div className="container mx-auto my-auto p-5 flex justify-center">
+            <div className="sm:hidden font-Lato bg-[#181A1C]/60 flex flex-col justify-evenly items-center w-[306px] h-[452.28px] text-white  p-[24px] rounded-sm ">
                
                 <div className="w-[94px] h-[24px] gap-[2.32px]">
                     <img src={foto} alt="Logo Chill" />
@@ -35,10 +37,15 @@ const SignIn = () => {
                     <img src={showEye} alt="show"  className='w-[12px] h-[12px] absolute right-3 bottom-2'/>
                 </div>
                                 
-                <span className='w-[258px] h-[14px] flex justify-start gap-[8px] text-[10px] font-[400] '>Belum Punya Akun? 
-                    <NavLink to={'/signup'} className='font-[500] text-[10px]' href="#">Daftar</NavLink></span>
+                <span className='w-[258px] h-[14px] gap-[8px] flex justify-between'>
+                    <div className='flex'>
+                        <p className='text-[10px] font-[400]'>Belum Punya Akun?</p>
+                        <NavLink to={'/signup'} className='font-[500] text-[10px]' href="#">Daftar</NavLink>
+                    </div>
+                    <NavLink className=' font-[500] text-[10px] cursor-pointer' to='/notfound'>Lupa kata sandi?</NavLink>    
+                </span>
 
-                <div className="w-[258px] h-[79.33px] flex flex-col justify-center items-center gap-[4px] my-2">
+                <div className="w-[258px] h-[79.33px] flex flex-col justify-between items-center gap-[4px] my-2">
                     <NavLink to={'/home'}>
                         <button  className='cursor-pointer w-[258px] h-[30.17px] bg-[#3D4142] border-1 
                         text-[10px] font-medium rounded-[13.86px]'>Masuk</button>
@@ -50,10 +57,12 @@ const SignIn = () => {
                         Masuk dengan Google
                     </button>
                 </div>
-        </div>   
+              
+        </div>
+    </div>   
 
         {/* Fullscreen  */}
-        <div className="flex justify-center items-center py-10vh">
+        <div className="container my-auto mx-auto p-5 flex justify-center">
             <div className="max-sm:hidden font-Lato gap-[37px] bg-[#181A1C]/60 flex flex-col justify-evenly items-center w-[529px] h-[663px] text-white  p-[40px] rounded-[16px] ">
                
                 <div className="w-[163px] h-[44px] gap-[4px]">
@@ -78,7 +87,7 @@ const SignIn = () => {
                 </div>
                                 
                 <span className='w-[449px] h-[22px] flex justify-start gap-[8px] text-[16px] font-[400] '>Belum punya akun? 
-                    <NavLink className='font-[500] text-[16pvx] cursor-pointer' to='/signup'>Daftar</NavLink>
+                    <NavLink className='font-[500] text-[16pvx] cursor-pointer' to='/register'>Daftar</NavLink>
                     <NavLink className='ml-[9vw] font-[500] text-[16px] cursor-pointer' to='/notfound'>Lupa kata sandi?</NavLink>    
                 </span>
 
@@ -86,11 +95,11 @@ const SignIn = () => {
                     <button className='cursor-pointer w-[449px] h-[50px] bg-[#3D4142] hover:bg-[#303334] border-1 
                     text-[16px] font-medium rounded-[24px]' onClick={() => navigate('/home')}>Masuk</button>
                     <p className='text-[14px] text-gray-300 font-normal'>Atau</p>
-                    <button className='cursor-pointer w-[449px] h-[47px] hover:bg-[#3D4142] justify-center flex items-center gap-[20px]
+                    <NavLink to={'/debug'}><button className='cursor-pointer w-[449px] h-[47px] hover:bg-[#3D4142] justify-center flex items-center gap-[20px]
                         bg-[#3D4142]/10 border-1 text-[16px] font-medium rounded-[24px] '>
                         <img src={google} alt="google" />
                         Masuk dengan Google
-                    </button>
+                    </button></NavLink>
                 </div>
         </div>   
 
@@ -105,5 +114,5 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default Login
 

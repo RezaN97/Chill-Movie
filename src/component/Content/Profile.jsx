@@ -2,10 +2,11 @@ import Navbar from "../Navbar"
 import Footer from "../Footer"
 import iconWarning from "../../img/icon-warning.png"
 import iconEdit from "../../img/edit.png"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Avatar from "../../img/navbar/avatar.png"
 import iconUpload from "../../img/icon-upload.png"
 import { listPoster } from "./Poster"
+import { useStoreAPI } from "../../Store/store"
 
 const Profile = () =>{
 
@@ -15,6 +16,12 @@ const Profile = () =>{
     // Logic pop up
     const condition = premium //can set to premium or notpremium for different display
     const popupMember = condition === premium ? <Premium /> : <NotPremium />
+
+    const { movie , getMovie } = useStoreAPI()
+
+    useEffect(() => {
+        getMovie()
+    }, [])
 
     return(
         <>
@@ -37,7 +44,9 @@ const Profile = () =>{
         {/* Mobile screen */}
         <div className="sm:hidden flex flex-col justify-center items-center gap-3 my-3">
             {popupMember}
-            <FormProfile/>
+            <div className="mb-10">
+                <FormProfile/>
+            </div>
             <div className="w-[320px] h-[346px] ">
                 <MyMovie/>
 
@@ -61,21 +70,29 @@ export default Profile
 const FormProfile = () =>{
      const [formData, setFormData] = useState({ username: '', email: '', password: '' });
      const [showInput, setShowInput] = useState(false)
-      const handleChange = (e) => {
+     const [editData, setEditData] = useState(false)
+
+    // get input field
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
       };
     
-      const handleSave = () => {
+      // Save input field
+    const handleSave = () => {
         setShowInput(true)
-        setFormData({ username: '', email: '', password:''})
+        // setFormData({ username: '', email: '', password:''})
+        setEditData(true)
       };
 
-      const handleEdit = () => {
-        setShowInput(true)
+      // Change input field
+    const handleEdit = () => {
+        setShowInput(false)
+        setEditData(false)
 
       }
 
+      // CLear input field
     const handleDelete = () => {
         setFormData({ username: '', email: '', password:''})
         setShowInput(false)
@@ -84,76 +101,77 @@ const FormProfile = () =>{
 
     return (
     <>
-    <div className="w-[320px] sm:w-[642px] h-[392px] sm-h-[428px] gap-[24px] sm:gap-[32px] flex flex-col my-3" >
-                {/* profile */}
-            <h1 className="sm:hidden text-[20px] sm:text-[32px] font-bold text-white">Profile Saya</h1>
-            <div className="w-[320px] sm:w-[287px] h-[392px] sm:h-[140px] flex gap-[24px]">
-                <img src={Avatar} alt="avatar" className="w-[80px] sm:w-[140px] h-[80px] sm:h-[140px] gap-[10px]" />      
-                <div className="flex flex-col w-[109px] sm:w-[123px] h-[68px] gap-[8px]">
-                    <button className="border-1 border-[#3254FF] w-[91px] sm:w-[120px] h-[36px] sm:h-[42px] rounded-[48px] text-[14px] text-[#3254FF] font-bold ">Ubah Foto</button> 
-                    <div className="flex w-[109px] sm:w-[123px] h-[24px] gap-[4px]">
-                        <div className="w-[24px] h-[24px]">
-                            <img src={iconUpload} alt="upload" className="" />
+    <div className="container mx-auto ">
+        <div className="w-[320px] sm:w-[642px] h-[392px] sm-h-[428px] gap-[24px] sm:gap-[32px] flex flex-col my-3" >
+                    {/* profile */}
+                <h1 className="sm:hidden text-[20px] sm:text-[32px] font-bold text-white">Profile Saya</h1>
+                <div className="w-[320px] sm:w-[287px] h-[392px] sm:h-[140px] flex gap-[24px]">
+                    <img src={Avatar} alt="avatar" className="w-[80px] sm:w-[140px] h-[80px] sm:h-[140px] gap-[10px]" />      
+                    <div className="flex flex-col w-[109px] sm:w-[123px] h-[68px] gap-[8px]">
+                        <button className="border-1 border-[#3254FF] w-[91px] sm:w-[120px] h-[36px] sm:h-[42px] rounded-[48px] text-[14px] text-[#3254FF] font-bold ">Ubah Foto</button> 
+                        <div className="flex w-[109px] sm:w-[123px] h-[24px] gap-[4px]">
+                            <div className="w-[24px] h-[24px]">
+                                <img src={iconUpload} alt="upload" className="" />
+                            </div>
+                            <p className="w-[81px] sm:w-[95px] h-[17px] sm:h-[20px] font-normal text-[12px] text-[#C1C2C4]">Maksimal 2MB</p>
+                        </div> 
+
+
+                    {/* Display form result (CRUD}*/}
+                    {showInput &&(
+                        <div className="max-sm:hidden w-[320px] h-[300px] text-white">
+                            <p className="text-[16px] font-semibold">{formData.username}</p>
+                            <p className="text-[13px] font-normal">{formData.email}</p>
+                            <p className="text-[14px] font-bold">Password: {formData.password}</p>
                         </div>
-                        <p className="w-[81px] sm:w-[95px] h-[17px] sm:h-[20px] font-normal text-[12px] text-[#C1C2C4]">Maksimal 2MB</p>
-                    </div> 
-
-
-                {/* Display form result (CRUD}*/}
-                {showInput &&(
-                      <div className="max-sm:hidden w-[320px] h-[300px] text-white">
-                        <p className="text-[16px] font-semibold">{formData.username}</p>
-                        <p className="text-[13px] font-normal">{formData.email}</p>
-                        <p className="text-[14px] font-bold">Status Member: Premium</p>
-                    </div>
-                )}
-                  
+                    )}
                     
-                </div>
-                 
-            </div>         
-
-
-        
-                {/* Form section */}
-                {/* username */}
-                <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] sm:gap-[6px] bg-[#22282A]">
-                    <div className="flex flex-col">
-                        <label className="w-[256px] h-[20px] text-[14px] font-semibold text-[#9D9EA1]">Nama Pengguna</label>
-                        <input value={formData.username} onChange={handleChange} type="text" className="text-white w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="username" />
+                        
                     </div>
-                    <button onClick={handleEdit} className="cursor-pointer flex justify-start items-start w-[24px] h-[24px]">
-                        <img src={iconEdit} alt="iconEdit"/>
-                    </button>
-                </div>
+                    
+                </div>         
 
-                {/* Email */}
-                <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] bg-[#22282A]">
-                    <div className="flex flex-col">
-                        <label className="w-[256px] h-[20px]  text-[14px] font-semibold text-[#9D9EA1]">Email</label>
-                        <input value={formData.email} onChange={handleChange} type="email" className="text-[#9D9EA1] w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="email" />
-                    </div>
-                    <button onClick={handleEdit} className="cursor-pointer flex justify-center items-center">
-                        <img src={iconEdit} alt="iconEdit" className="w-[24px] h-[24px]"/>
-                    </button>
-                </div>
 
-                {/* Password */}
-                <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] bg-[#22282A]">
-                    <div className="flex flex-col">
-                        <label className="w-[256px] h-[20px] text-[14px] font-semibold text-[#9D9EA1]">Kata Sandi</label>
-                        <input value={formData.password} onChange={handleChange} type="password" className="text-white w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="password" />
-                    </div>
-                    <button onClick={handleEdit} className="cursor-pointer flex justify-center items-center">
-                        <img src={iconEdit} alt="iconEdit" className="w-[24px] h-[24px]"/>
-                    </button>
-                </div>
-                <div className="flex justify-between gap-2 max-sm:hidden">
-                    <button onClick={handleSave} type="submit" className="text-white text-[16px] sm:text-[13px] font-bold w-[106px] h-[42px] sm:h-[30px] bg-[#09147A] cursor-pointer rounded-[48px] ">Simpan</button>
-                    <button onClick={handleDelete} type="submit" className="text-white text-[16px] sm:text-[13px] font-bold w-[106px] h-[42px] sm:h-[30px] bg-red-500 cursor-pointer rounded-[48px] ">Delete</button>
-
-                </div>
             
+                    {/* Form section */}
+                    {/* username */}
+                    <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] sm:gap-[6px] bg-[#22282A]">
+                        <div className="flex flex-col">
+                            <label className="w-[256px] h-[20px] text-[14px] font-semibold text-[#9D9EA1]">Nama Pengguna</label>
+                            <input placeholder="Masukan username" value={formData.username} onChange={handleChange} readOnly={editData} type="text" className="text-white w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="username" />
+                        </div>
+                        <button onClick={handleEdit} className="cursor-pointer flex justify-start items-start w-[24px] h-[24px]">
+                            <img src={iconEdit} alt="iconEdit"/>
+                        </button>
+                    </div>
+
+                    {/* Email */}
+                    <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] bg-[#22282A]">
+                        <div className="flex flex-col">
+                            <label className="w-[256px] h-[20px]  text-[14px] font-semibold text-[#9D9EA1]">Email</label>
+                            <input placeholder="Masukan email" value={formData.email} onChange={handleChange} readOnly={editData} type="email" className="text-[#9D9EA1] w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="email" />
+                        </div>
+                        <button onClick={handleEdit} className="cursor-pointer flex justify-center items-center">
+                            <img src={iconEdit} alt="iconEdit" className="w-[24px] h-[24px]"/>
+                        </button>
+                    </div>
+
+                    {/* Password */}
+                    <div className="flex justify-between items-center w-[320px] sm:w-[642px] h-[56px] sm:h-[64px] rounded-[8px] border-[1px] border-[#E7E3FC3B] px-[16px] py-[8px] gap-[8px] bg-[#22282A]">
+                        <div className="flex flex-col">
+                            <label className="w-[256px] h-[20px] text-[14px] font-semibold text-[#9D9EA1]">Kata Sandi</label>
+                            <input placeholder="Masukan password" value={formData.password} onChange={handleChange} readOnly={editData} type="password" className="text-white w-[256px] h-[22px] gap-[6px] text-[16px] font-medium " name="password" />
+                        </div>
+                        <button onClick={handleEdit} className="cursor-pointer flex justify-center items-center">
+                            <img src={iconEdit} alt="iconEdit" className="w-[24px] h-[24px]"/>
+                        </button>
+                    </div>
+                    <div className="flex justify-between ">
+                        <button onClick={handleSave} type="submit" className="text-white text-[16px] sm:text-[13px] font-bold w-[80px] sm:w-[106px] h-[42px] sm:h-[30px] bg-[#09147A] cursor-pointer rounded-[48px] ">Simpan</button>
+                        <button onClick={handleDelete} type="submit" className="text-white text-[16px] sm:text-[13px] font-bold w-[80px] sm:w-[106px] h-[42px] sm:h-[30px] bg-red-500 cursor-pointer rounded-[48px] ">Delete</button>
+                    </div>
+        </div>
+
     </div>
     </>
     )

@@ -10,7 +10,7 @@ import posterOtto from '../../img/poster/poster10.png'
 import posterMermaid from '../../img/poster/poster6.png'
 import posterMissing from '../../img/poster/poster13.png'
 import posterDuty from '../../img/poster/poster17.png'
-import { BlueLabel } from '../Content/Content.jsx'
+import { LabelEpisode, LabelTopMovie } from '../LabelMovie.jsx'
 import { ArrowLeftTop, ArrowRightTop, ArrowLeftTrending, ArrowRightTrending, ArrowLeftNew, ArrowRightNew } from '../Content/Content.jsx'
 
 const CardPoster = () => {
@@ -68,27 +68,30 @@ export const TopMovie = () => {
     </div>
 
     {/* fullscreen */}
-    <div className="max-sm:hidden  w-[1440px] h-[512px] px-[80px] py-[40px] gap-[32px]">
-        <h2 className='w-[485px] h-[35px] font-bold text-white text-[32px]'>Top Rating Film dan Series Hari ini</h2>
+    <div className=" max-sm:hidden  w-[1440px] h-[512px] px-[80px] py-[40px] gap-[32px]">
+        <h2 className='w-[520px] h-[35px] font-bold text-white text-[32px]'>Top Rating Film dan Series Hari ini</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">
-           <div className="w-[234px] h-[365px] gap-[10px]">
+           <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="relative left-[2vw] top-[3vh]">
+                    <LabelEpisode/>
+                </div>
                 <img src={posterAnime} alt="anime"/>
             </div>
             
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterJurassic} alt="dino" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterSonic} alt="sonic" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterAllofus} alt="allofus" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterBighero} alt="bighero" />
             </div>
          </div>
@@ -130,24 +133,38 @@ export const TrendingMovie = () => {
         <h2 className='w-[485px] h-[35px] font-bold text-white text-[32px]'>Film Trending</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">
-           <div className="w-[234px] h-[365px] gap-[10px]">
-                <img src={posterWar} alt="anime" />
-
+           <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
+                <img src={posterWar} alt="war" />
             </div>
             
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
                 <img src={posterAntman} alt="antman" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
                 <img src={posterGuardian} alt="guardian" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
                 <img src={posterOtto} alt="otto" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
                 <img src={posterMermaid} alt="mermaid" />
             </div>
          </div>
@@ -190,23 +207,32 @@ export const NewMovie = () => {
         <h2 className='w-[485px] h-[35px] font-bold text-white text-[32px]'>Rilis Baru</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">
-           <div className="w-[234px] h-[365px] gap-[10px]">
+           <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="flex relative left-[15vw]">
+                    <LabelTopMovie />
+                </div>
                 <img src={posterMermaid} alt="mermaid" />
             </div>
             
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="relative left-[2vw] top-[3vh]">
+                    <LabelEpisode/>
+                </div>
                 <img src={posterDuty} alt="duty" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterBighero} alt="bighero" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
+                <div className="relative left-[2vw] top-[3vh]">
+                    <LabelEpisode/>
+                </div>
                 <img src={posterAllofus} alt="allofus" />
             </div>
 
-            <div className="w-[234px] h-[365px] gap-[10px]">
+            <div className="flex w-[234px] h-[365px] gap-[10px]">
                 <img src={posterMissing} alt="missing" />
             </div>
          </div>

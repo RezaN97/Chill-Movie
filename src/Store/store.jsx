@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { getAPI, movieAPI, postAPI } from '../service/api/movieAPI'
-import { movieAPI } from '../service/api/movieAPI'
+import { baseAPI } from '../service/api/movieAPI'
+import axios from 'axios'
 
 const newStore = create((set) => ({
     bears: 0, 
@@ -18,12 +18,13 @@ export const storeMovie = create((set) => ({
 }))
 
 export const useStoreAPI = create((set) => ({
-    movieAPI:[],
+    storeAPI:[],
     fetchAPI: async () => {
         try{
-            const res = await axios.get(movieAPI)
+            const res = await axios.get(baseAPI)
+            set({storeAPI: res.data})
         } catch (err)  {
-            console.log('Gagak memuat data ')
+            console.log('Gagal memuat data ',err)
         }
     }
 

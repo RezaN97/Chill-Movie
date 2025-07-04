@@ -1,16 +1,16 @@
 import axios from "axios";
 import { storeMovie } from "../../Store/store";
 
-export const movieAPI = axios.create({ baseURL: import.meta.env.VITE_API_URL})
+export const baseAPI = axios.create({ baseURL: import.meta.env.VITE_API_URL})
 
 //GET DATA API
 export const getAPI = () => {
-    axios.get(movieAPI)
-        .then((res) => {
+    axios.get(baseAPI)
+        .then(res => {
             console.log(res.data)
-        .catch((err) => {
-            console.error(err)
         })
+        .catch(err => {
+            console.error(err)
         })
 }
 
@@ -18,10 +18,10 @@ export const getAPI = () => {
 export const postAPI = () => {
     
     // SET DATA FOR POST to API 
-    axios.post(movieAPI, storeMovie)
-        .then((res) => {
+    axios.post(baseAPI, storeMovie)
+        .then(res => {
             console.log(res.data)
-        .catch((err) => {
+        .catch(err => {
             console.error(err)
         })
         })

@@ -6,7 +6,6 @@ import React, { useEffect, useState } from "react"
 import Avatar from "../../img/navbar/avatar.png"
 import iconUpload from "../../img/icon-upload.png"
 import { listPoster } from "./Poster"
-import { useStoreAPI } from "../../Store/store"
 
 const Profile = () =>{
 
@@ -17,11 +16,7 @@ const Profile = () =>{
     const condition = premium //can set to premium or notpremium for different display
     const popupMember = condition === premium ? <Premium /> : <NotPremium />
 
-    const { movie , getMovie } = useStoreAPI()
 
-    useEffect(() => {
-        getMovie()
-    }, [])
 
     return(
         <>
@@ -48,6 +43,7 @@ const Profile = () =>{
                 <FormProfile/>
             </div>
             <div className="w-[320px] h-[346px] ">
+                <button className></button>
                 <MyMovie/>
 
             </div>
@@ -227,7 +223,11 @@ export const MyMovie = () => {
     return (
     <>
     <div className="flex flex-col gap-4 px-[5px] sm:px-[80px] mb-5">
-        <h1 className="text-white sm:text-[34px] font-bold">Daftar Saya</h1>
+        <div className="flex justify-between cursor-pointer w-[1280px] h-[35px]">
+            <h1 className="text-white sm:text-[34px] font-bold">Daftar Saya</h1>
+            <button className="text-white font-normal text-[18px]">Lihat semua</button>
+
+        </div>
         <div className="grid grid-cols-3 pl-2 gap-x-[10vw] sm:gap-x-[2vw] gap-y-[2vh] sm:gap-y-[2vh] sm:grid-cols-6 grid-rows-4 sm:grid-rows-2">
                 {listPoster.slice(0,6).map((img) => (
                     <div key={img.id} className="rounded  w-[320.18px] sm:w-[1280px] h-[145px] sm:h-[300px] gap-[17.56px] sm:gap-[16px]">
@@ -235,10 +235,15 @@ export const MyMovie = () => {
                     </div>
                 ))}
         </div>
+
+        {/* Section Lihat Selengkapnya (title,genre,desc)*/}
+        <div className="w-[1280px] h-[1000px]">
+                <div className=""></div>
+        </div>
+
     </div>
     
     </>
-
-
     )
 }
+

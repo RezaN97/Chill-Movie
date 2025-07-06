@@ -1,15 +1,14 @@
 import muteIcon from "../img/mute.png"
 import plusIcon from "../img/plus.png"
-import {storeMovie} from "../Store/store"
+import {storeMovie} from "../Store/zustand"
 import imgEps1 from '../img/card/eps-1.png'
 import imgEps2 from '../img/card/eps-2.png'
 import imgEps3 from '../img/card/eps-3.png'
 import imgEps4 from '../img/card/eps-4.png'
 import imgEps5 from '../img/card/eps-5.png'
 import { useEffect, useState } from "react"
+
 const Modal = () => {
-    const [dataMovie, setDataMovie] = useState([])
-    const [chillAPI, setChillAPI] = useState ([])
     
 
     return (
@@ -181,11 +180,11 @@ const Modal = () => {
 
 
 export const CardEpisode = () => {
-        const {episode, setEpisode } = storeMovie()
+        const {movie, setMovie } = storeMovie()
 
         useEffect(() => {
-            setMove(episodeData)
-        }, [setEpisode])
+            setMovie(episodeData)
+        }, [movie])
 
         return  (
             <>

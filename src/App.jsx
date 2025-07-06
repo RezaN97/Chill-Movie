@@ -7,14 +7,9 @@ import DaftarSaya from './component/Content/DaftarSaya.jsx'
 import Profile from './component/Content/Profile.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import NotFound from './component/NotFound.jsx'
-import { useEffect } from 'react'
-import { getAPI } from './service/api/movieAPI.js'
 
 function App() {
 
-  useEffect(() => {
-    getAPI()
-  }, [])
 
   return (
   <>

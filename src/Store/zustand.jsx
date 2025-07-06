@@ -1,14 +1,10 @@
 import { create } from 'zustand'
-import { baseAPI } from '../service/api/movieAPI'
 import axios from 'axios'
 
-const newStore = create((set) => ({
-    bears: 0, 
-    species: 'Polar Bears',
-    incrasePopulation: () => set((state) => ({bears: state.bears + 1}))
-    
-}))
 
+
+
+//Store data Movie 
 export const storeMovie = create((set) => ({
     movie: [],
     setMovie: (data) => set({ movie: data}),
@@ -17,21 +13,18 @@ export const storeMovie = create((set) => ({
     }))
 }))
 
-export const useStoreAPI = create((set) => ({
-    storeAPI:[],
-    fetchAPI: async () => {
-        try{
-            const res = await axios.get(baseAPI)
-            set({storeAPI: res.data})
-        } catch (err)  {
-            console.log('Gagal memuat data ',err)
-        }
-    }
+// STORE OF STATUS USER (premium/not premium)
+// comming soon
 
-}))
 
 
 // TESTING USING ZUSTAND
+const newStore = create((set) => ({
+    bears: 0, 
+    species: 'Polar Bears',
+    incrasePopulation: () => set((state) => ({bears: state.bears + 1}))
+    
+}))
 export const BearsCounter = () => {
     const bearsSpecies = newStore((state) => state.species)
     const valueBears = newStore((state) => state.bears)

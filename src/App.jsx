@@ -1,12 +1,13 @@
 // import { useState } from 'react'
-import Home from './component/Home.jsx'
-import Series from './component/Content/Series.jsx'
-import Login from './component/Login.jsx'
-import Register from './component/Register.jsx'
-import DaftarSaya from './component/Content/DaftarSaya.jsx'
-import Profile from './component/Content/Profile.jsx'
+import Home from './pages/Home.jsx'
+import Series from './pages/Series.jsx'
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
+import DaftarSaya from './pages/DaftarSaya.jsx'
+import Profile from './pages/Profile.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
-import NotFound from './component/NotFound.jsx'
+import NotFound from './pages/NotFound.jsx'
+import Admin from './pages/Admin.jsx'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Route path='/profile' element={<Profile />}/>
       <Route path='/notfound' element={<NotFound />}/>
       <Route path='/series' element={<Series />}/>
+      <Route path='/admin' element={<Admin />}/>
     </Routes>
   </Router>
 

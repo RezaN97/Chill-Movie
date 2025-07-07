@@ -16,7 +16,10 @@ const Dropdown = () => {
       <img className='md:w-[40px] md:h-[40px]  sm:w-[20px] sm:h-[20px]' src={iconAvatar} alt="User Avatar"/>
       <ChevronDownIcon onClick={() => setIsOpen(!isOpen)} className="cursor-pointer text-white w-[20px] h-[20px] ml-2  " />
       {isOpen && (
-        <div className="absolute w-[113px] sm:w-[156px] h-[116px] sm:h-[128px] top-[50px] sm:top-[82px] left-[227px] sm:left-[1150px] py-[4px] text-[10px] sm:text-[14px] font-medium z-1 bg-[#181A1C] border rounded-md shadow-lg">
+        <div className="absolute w-[113px] sm:w-[156px] h-[116px] sm:h-[170px] top-[50px] sm:top-[82px] left-[227px] sm:left-[1100px] py-[4px] text-[10px] sm:text-[14px] font-medium z-1 bg-[#181A1C] border rounded-md shadow-lg">
+          <NavLink to='/admin' className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] items-center rounded text-white hover:text-blue-900 hover:bg-[#0d0e10]">
+            <span><UserIcon className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px]"/></span> Admin
+          </NavLink>
           <NavLink to='/profile' className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] items-center rounded text-white hover:text-blue-900 hover:bg-[#0d0e10]">
             <span><UserIcon className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px]"/></span> Profile Saya
           </NavLink>

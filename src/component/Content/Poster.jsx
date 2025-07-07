@@ -12,6 +12,7 @@ import poster11 from "../../img/poster/poster15.png"
 import poster12 from "../../img/poster/poster27.png"
 
 
+// Use in home , series, and film page
  export const listPoster = [
         {id:1, src:poster1, alt: 'Poster'},
         {id:2, src:poster2, alt: 'Poster'},

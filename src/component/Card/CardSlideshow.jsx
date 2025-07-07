@@ -1,15 +1,24 @@
 import React,{useState} from "react"
-import imgSlideHome from "../../img/isi-konten.png"
-import imgSlideSeries from "../../img/bg/bg_series.png"
+import bgSlideHome from "../../img/bg/bg-home.png"
+import bgSlideSeries from "../../img/bg/bg-series.png"
 import muteIcon from "../../img/mute.png"
 
 const CardSlideshow = () => {
+    // Declaration state image slideshow
     const [slideHome, setSlideHome] = useState(
     {   title:"Duty After School",
         textSlide: " Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam perang.",
-        image: imgSlideHome
-    }
-    )
+        image: bgSlideHome
+    })
+
+    const [slideSeries, setSlideSeries] = useState(
+    {   title:"Happiness",
+        textSlide: "Mengisahkan tentang kelompok orang yang berjuang untuk bertahan hidup di dalam sebuah gedung apartemen yang penuh dengan zombie. Sayangnya, virus zombie hanya terdapat di dalam area apartemen tersebut dan tidak menyebar ke luar kawasan apartemen.",
+        image: bgSlideSeries
+    })
+
+    
+
 
 
 

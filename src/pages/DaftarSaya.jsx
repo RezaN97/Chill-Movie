@@ -1,6 +1,6 @@
-import Navbar from "../Navbar"
-import Footer from "../Footer"
-import { listPoster } from "./Poster"
+import Navbar from "../component/Navbar"
+import Footer from "../component/Footer"
+import { listPoster } from "../component/Content/Poster"
 
 
 const DaftarSaya = () =>{

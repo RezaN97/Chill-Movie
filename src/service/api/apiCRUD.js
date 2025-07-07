@@ -12,3 +12,6 @@ export const updateData = (id, endpoint, data) => api.put(`/${endpoint}/${id}`, 
 
 // DELETE
 export const deleteData = (id, endpoint) => api.get(`/${endpoint}/${id}`)
+
+// PUT
+export const putData = (id, endpoint) => api.put(`/${endpoint}/${id}`)

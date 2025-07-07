@@ -1,11 +1,11 @@
-import Navbar from "../Navbar"
-import Footer from "../Footer"
-import iconWarning from "../../img/icon-warning.png"
-import iconEdit from "../../img/edit.png"
+import Navbar from "../component/Navbar"
+import Footer from "../component/Footer"
+import iconWarning from "../img/icon-warning.png"
+import iconEdit from "../img/edit.png"
 import React, { useEffect, useState } from "react"
-import Avatar from "../../img/navbar/avatar.png"
-import iconUpload from "../../img/icon-upload.png"
-import { listPoster } from "./Poster"
+import Avatar from "../img/navbar/avatar.png"
+import iconUpload from "../img/icon-upload.png"
+import { listPoster } from "../component/Content/Poster"
 
 const Profile = () =>{
 
@@ -23,7 +23,7 @@ const Profile = () =>{
         <Navbar />
        {/* Fullscreen  */}
        <div className="max-sm:hidden">
-            <div className=" w-[1440px] h-[649px] px-[80px] py-[40px] gap-[20px] flex flex-col">
+            <div className=" w-[1440px] h-[649px] px-[50px] py-[40px] gap-[20px] flex flex-col">
                 <h1 className="max-sm:hidden text-[32px] font-bold text-white">Profile Saya</h1>
                     {/* Profile layout */}
                 <div className="w-[1280px] h-[428px] gap-[80px] flex">
@@ -31,7 +31,7 @@ const Profile = () =>{
                         {popupMember}
                 </div>
             </div>
-            <div className="w-[1440px] h-[367px] mb-5">
+            <div className="w-[1440px] h-[367px] px-20">
                 <MyMovie/>
             </div>
        </div>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"
-import Modal from "./Modal"
+import Modal from "../component/Modal"
 import { BearsCounter } from "../Store/zustand"
 import React, {useEffect, useState} from "react"
 import { getData, postData, updateData, deleteData } from "../service/api/apiCRUD"

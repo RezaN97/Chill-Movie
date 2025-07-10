@@ -27,13 +27,13 @@ const Login = () => {
                 <div className="w-[258px] h-[45.47px] flex flex-col gap-[3.47px]">
                     <label className="text-[10px] font-[500] w-[46px] h-[14px] gap-[6px]" htmlFor="username">Username</label>
                     <input className="w-[260px] h-[28px] px-[11.55px] py-[8.09px] border-[#E7E3FC] bg-[#E7E3FC3B] text-[9.24px]
-                        text-white p-2 rounded-2xl  " type="text" name="username" id="username" placeholder='Username..' />
+                        text-white p-2 rounded-2xl  " type="text" name="username" placeholder='Username..' />
                 </div>
 
                 <div className="w-[258px] h-[45.47px] flex flex-col gap-[3.47px] relative">
                     <label className="text-[10px] font-[500] w-[49px] h-[14px] gap-[6px]" htmlFor="kataSandi">Kata sandi</label>
                     <input className=" w-[260px] h-[28px] px-[11.55px] py-[8.09px] border-[#E7E3FC] bg-[#E7E3FC3B] text-[9.24px]
-                        text-white p-2 rounded-2xl  " type="password" name="password" id="password" placeholder='Masukan Kata Sandi..' />
+                        text-white p-2 rounded-2xl  " type="password" name="password" placeholder='Masukan Kata Sandi..' />
                     <img src={showEye} alt="show"  className='w-[12px] h-[12px] absolute right-3 bottom-2'/>
                 </div>
                                 

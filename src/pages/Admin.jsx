@@ -130,8 +130,8 @@ const Admin = () => {
     {/* Mobile Screen */}
        <div className="sm:hidden border-2 rounded-xl pt-2 pb-3 px-2 w-[120vw] h-full container mx-auto my-10 text-white  bg-[#2F3334] justify-center items-center">
         <div className="flex gap-10">
-                <h1 className=' text-2xl font-bold mb-10'>Admin Dashboard - Chill Movie</h1>
-                <button className="absolute right-80 top-14 bg-red-600 hover:bg-red-900 font-semibold w-10 h-10 rounded-3xl align-top text-2xl flex justify-center"> <NavLink to={'/home'}>x</NavLink></button>
+                <h1 className=' text-[1.25rem] font-bold mb-10'>Admin Dashboard - Chill Movie</h1>
+                <button className="absolute left-83 top-14 bg-red-600 hover:bg-red-900 font-semibold w-7 h-7 rounded-3xl  text-2xl flex justify-center items-center pb-2"> <NavLink to={'/home'}>x</NavLink></button>
             </div>
             <div className="flex flex-col gap-4">
                 {/* form input */}
@@ -142,7 +142,7 @@ const Admin = () => {
                     <input value={formData.rating} onChange={handleChange} className='focus:bg-amber-950 p-3 bg-[#181A1C] w-full h-10 rounded-xl' type="number" name="rating"  placeholder="Masukan Rating Film"/>
                     {/* button */}
                     <div className="flex w-auto">
-                        <button type='submit' className="cursor-pointer w-30 h-9 font-semibold rounded-3xl bg-blue-700 hover:bg-blue-900">Tambah Data</button>
+                        <button type='submit' className="cursor-pointer w-28 h-9 font-semibold rounded-3xl bg-blue-700 hover:bg-blue-900">Tambah Data</button>
                     </div>
                 </form>
 

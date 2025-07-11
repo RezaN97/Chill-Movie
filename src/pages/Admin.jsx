@@ -6,6 +6,7 @@ const Admin = () => {
     const [movie, setMovie] = useState([])
     const [formData, setFormData] = useState({title:'', genre:'', description:'', rating:''})
     const [editID, setEditID] = useState(null)
+    const [endpoint, setEndPoint] = useState('movies')
 
     // Fetch data
     useEffect(() => {
@@ -14,7 +15,7 @@ const Admin = () => {
 
     const fetchAPI = async () => {
         try {
-            const {data} = await getData('movies')
+            const {data} = await getData(endpoint)
             setMovie(data)
             console.log(movie)
         } catch (error) {
@@ -33,10 +34,10 @@ const Admin = () => {
         e.preventDefault()
         try {
                 if(editID) {
-                    await updateData('movies',`${editID}`, formData)
+                    await updateData(endpoint,`${editID}`, formData)
                     alert("Film berhasil di Update")
                 } else {
-                    await postData('movies', formData)
+                    await postData(endpoint, formData)
                     alert("Berhasil menambahkan film")
                 }
                 fetchAPI()
@@ -51,7 +52,7 @@ const Admin = () => {
     // Delete product
     const handleDelete = async (id) => {
         if (confirm("Ingin menghapus?")){
-            await deleteData(`${id}`,'movies')
+            await deleteData( endpoint,`${id}`)
             fetchAPI()
         }
     }
@@ -99,21 +100,28 @@ const Admin = () => {
                     <p className='font-semibold text-xl'>Genre</p>
                     <p className='font-semibold text-xl ml-[8vw]'>Desc</p>
                     <p className='font-semibold text-xl ml-[7vw]'>Rating</p>
-
                 </div>
-                {movie.map(prop => (
-                    <ol className='px-2'>
-                        {/* content */}
-                        <li key={prop.key} className='flex gap-3 text-[12px]'>
-                            <p>{prop.title}</p>
-                            <p>{prop.genre}</p>
-                            <p>{prop.description}</p>
-                            <p>{prop.rating}</p>
-                            <button onClick={handleEdit} className='rounded-xl w-[5vw] h-[4vh] bg-amber-500 cursor-pointer'>Edit</button>
-                            <button onClick={handleDelete} className='rounded-xl w-[5vw] h-[4vh] bg-red-500 cursor-pointer'>Hapus</button>
-                        </li>
-                    </ol>
-                ))}
+
+                {/* Data Film */}
+                <ul className='py-2'>
+                    {movie.map(prop => (
+                        <>
+                            {/* content */}
+                            <li key={prop.id} className='flex gap-3 text-[12px]'>
+                                <div className="flex gap-2">
+                                    <p>{prop.title}</p>
+                                    <p>{prop.genre}</p>
+                                    <p>{prop.description}</p>
+                                    <p>{prop.rating}</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    <button onClick={() => handleEdit(prop)} className='rounded-xl w-[5vw] h-[4vh] bg-amber-500 cursor-pointer'>Edit</button>
+                                    <button onClick={() => handleDelete(prop.id)} className='rounded-xl w-[5vw] h-[4vh] bg-red-500 cursor-pointer'>Hapus</button>
+                                </div>
+                            </li>
+                        </>
+                    ))}
+                </ul>
                 
             </div>
 

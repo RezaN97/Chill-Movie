@@ -71,10 +71,10 @@ const Admin = () => {
 
 
     return (
-        
-        <>
-        <div className=" border-5 rounded-xl pt-2 px-5 w-[120vw] h-110 container mx-auto my-10 text-white  bg-[#2F3334] justify-center items-center">
-            <div className="flex gap-10">
+    <>
+    {/* Full Screen */}
+    <div className="max-sm:hidden border-5 rounded-xl pt-2 px-5 w-[120vw] h-110 container mx-auto my-10 text-white  bg-[#2F3334] justify-center items-center">
+        <div className="flex gap-10">
                 <h1 className=' text-2xl font-bold mb-10'>Admin Dashboard - Chill Movie</h1>
                 <button className="absolute right-80 top-14 bg-red-600 hover:bg-red-900 font-semibold w-10 h-10 rounded-3xl align-top text-2xl flex justify-center"> <NavLink to={'/home'}>x</NavLink></button>
             </div>
@@ -109,6 +109,7 @@ const Admin = () => {
                             {/* content */}
                             <li key={prop.id} className='flex gap-3 text-[12px]'>
                                 <div className="flex gap-2">
+                                    <p>{prop.id}</p>
                                     <p>{prop.title}</p>
                                     <p>{prop.genre}</p>
                                     <p>{prop.description}</p>
@@ -122,18 +123,66 @@ const Admin = () => {
                         </>
                     ))}
                 </ul>
-                
             </div>
-
-
-
-                
-            </div>
-          
-
         </div>
+    </div>
+    
+    {/* Mobile Screen */}
+       <div className="sm:hidden border-2 rounded-xl pt-2 pb-3 px-2 w-[120vw] h-full container mx-auto my-10 text-white  bg-[#2F3334] justify-center items-center">
+        <div className="flex gap-10">
+                <h1 className=' text-2xl font-bold mb-10'>Admin Dashboard - Chill Movie</h1>
+                <button className="absolute right-80 top-14 bg-red-600 hover:bg-red-900 font-semibold w-10 h-10 rounded-3xl align-top text-2xl flex justify-center"> <NavLink to={'/home'}>x</NavLink></button>
+            </div>
+            <div className="flex flex-col gap-4">
+                {/* form input */}
+                <form className='flex flex-col gap-4 'onSubmit={handleSubmit}>
+                    <input value={formData.title} onChange={handleChange} className='focus:bg-amber-950 p-3 bg-[#181A1C] w-full h-10 rounded-xl' type="text" name="title"  placeholder="Masukan Nama Film "/>
+                    <input value={formData.genre} onChange={handleChange} className='focus:bg-amber-950 p-3 bg-[#181A1C] w-full h-10 rounded-xl' type="text" name="genre"  placeholder="Masukan Genre Film "/>
+                    <input value={formData.description} onChange={handleChange} className='focus:bg-amber-950 p-3 bg-[#181A1C] w-full h-10 rounded-xl' type="text" name="description"  placeholder="Masukan Deskripsi Film"/>
+                    <input value={formData.rating} onChange={handleChange} className='focus:bg-amber-950 p-3 bg-[#181A1C] w-full h-10 rounded-xl' type="number" name="rating"  placeholder="Masukan Rating Film"/>
+                    {/* button */}
+                    <div className="flex w-auto">
+                        <button type='submit' className="cursor-pointer w-30 h-9 font-semibold rounded-3xl bg-blue-700 hover:bg-blue-900">Tambah Data</button>
+                    </div>
+                </form>
+
+            {/* Display result from MOCKAPI */}
+            <div className="rounded-xl w-full h-80 border-2 overflow-scroll">
+                
+                {/* header result*/}
+                <div className="flex w-full gap-12 px-2 bg-red-600 mb-2">
+                    <p className='font-semibold text-20'>Title</p>
+                    <p className='font-semibold text-20'>Genre</p>
+                    <p className='font-semibold text-20 '>Desc</p>
+                    <p className='font-semibold text-20 '>Rating</p>
+                </div>
+
+                {/* Data Film */}
+                <ul className='py-2'>
+                    {movie.map(prop => (
+                        <>
+                            {/* content */}
+                            <li key={prop.id} className='flex gap-3 text-[12px]'>
+                                <div className="flex gap-2">
+                                    <p>{prop.id}</p>
+                                    <p>{prop.title}</p>
+                                    <p>{prop.genre}</p>
+                                    <p>{prop.description}</p>
+                                    <p>{prop.rating}</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    <button onClick={() => handleEdit(prop)} className='rounded-xl w-[10vw] h-[4vh] bg-amber-500 cursor-pointer'>Edit</button>
+                                    <button onClick={() => handleDelete(prop.id)} className='rounded-xl w-[10vw] h-[4vh] bg-red-500 cursor-pointer'>Hapus</button>
+                                </div>
+                            </li>
+                        </>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
         
-        
+
         
         </>
     )

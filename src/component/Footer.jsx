@@ -40,7 +40,7 @@ const Footer = () => {
         {/* End Mobile Screen */}
 
         {/* Full Screen */}
-        <div className="max-sm:hidden w-[1280px] h-[164x] flex justify-between">
+        <div className="max-sm:hidden w-full h-[164x] flex justify-between">
             {/* <!--  copyright full screen --> */}
             <div className="w-[251px] h-[91px] gap-[26px]">
                 <img src={logoChill} alt="logo" className='w-[163px] h-[44px] gap-[4px]' />

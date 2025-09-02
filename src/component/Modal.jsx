@@ -6,7 +6,7 @@ import imgEps2 from '../img/card/eps-2.png'
 import imgEps3 from '../img/card/eps-3.png'
 import imgEps4 from '../img/card/eps-4.png'
 import imgEps5 from '../img/card/eps-5.png'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 const Modal = () => {
     
@@ -189,7 +189,7 @@ export const CardEpisode = () => {
         return  (
             <>
             
-            {episode.map((eps) => (
+            {episodeData.map((eps) => (
             <div className="w-[282px] h-[262px] sm:w-[773px] sm:h-[685px] p-5">
                 <div className="hover:bg-amber-300 flex w-[282px] sm:w-[773px] h-[52px] sm:h-[137px] rounded-[1.37px] sm:rounded-[4px] px-[8.23px] sm:px-[24px] py-[5.49px] sm:py-[20px] gap-[8.23px] sm:gap-[24px]">
                     <h2 className="text-[10px] font-normal sm:text-[18px] sm:font-semibold">{eps.id}</h2>

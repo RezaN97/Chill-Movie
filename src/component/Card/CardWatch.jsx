@@ -48,7 +48,7 @@ const CardWatch = ({title, rating, bgImage}) => {
 
 
         {/* FullScreen */}
-        <section className="max-sm:hidden font-Lato flex flex-col top-[681px] md:w-[1440px] md:h-[309px] px-[80px] py-[40px] gap-[32px]">
+        <section className="max-sm:hidden font-Lato flex flex-col top-[681px] md:w-full md:h-[309px] px-[80px] py-[40px] gap-[32px]">
                 <h2 className="text-white text-[32px] font-bold">Melanjutkan Tonton Film</h2>
                 <div id="image-slider" className="flex flex-row gap-[24px] text-white">
                     

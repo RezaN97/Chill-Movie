@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getData, postData, updateData, deleteData } from '../service/api/apiCRUD'
 import { NavLink } from 'react-router'
+// import { useMovieStore } from '../Store/zustand'
 
 const Admin = () => {
     const [movie, setMovie] = useState([])
@@ -13,6 +14,9 @@ const Admin = () => {
     useEffect(() => {
         fetchAPI()
     }, [])
+
+
+    
 
     const fetchAPI = async () => {
         try {
@@ -36,16 +40,16 @@ const Admin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-                if(editID) {
-                    await updateData(endpoint,`${editID}`, formData)
-                    alert("Film berhasil di Update")
-                } else {
-                    await postData(endpoint, formData)
-                    alert("Berhasil menambahkan film")
-                }
-                fetchAPI()
-                setFormData({title:'', release:'',  genre:[], rating:''})
-                setEditID(null)
+            if(editID) {
+                await updateData(endpoint,`${editID}`, formData)
+                alert("Film berhasil di Update")
+            } else {
+                await postData(endpoint, formData)
+                alert("Berhasil menambahkan film")
+            }
+            fetchAPI()
+            setFormData({title:'', release:'',  genre:[], rating:''})
+            setEditID(null)
 
         } catch (error) {
             console.log("Error :", error)
@@ -190,7 +194,6 @@ const Admin = () => {
 
         
         </>
-    )
-}
+    )}
 
-export default Admin
+    export default Admin

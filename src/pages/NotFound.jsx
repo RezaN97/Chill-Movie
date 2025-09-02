@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router"
 import Modal from "../component/Modal"
 import { BearsCounter } from "../Store/zustand"
-import React, {useEffect, useState} from "react"
-import { getData, postData, updateData, deleteData } from "../service/api/apiCRUD"
+import { useEffect } from "react"
+// import React, {useEffect, useState} from "react"
+// import { useMovieStore } from "../Store/zustand"
 
 const NotFound = () =>  {
     
+
+
+
+
     const navigate = useNavigate()
 
     return(
@@ -18,17 +23,40 @@ const NotFound = () =>  {
    
        </div>
        <BearsCounter/>
-       {/* <div className="">
-        <Modal />
 
-       </div> */}
-        {/* <ApiTest /> */}
+
+
     </>
     )
 }
 
     export default NotFound
 
+// ERROR CODE
+// export const MockAPI = () => {
+
+//     const { movies , getMockAPI ,loading, error } = useMovieStore()
+//     useEffect(() => {
+//         getMockAPI()
+//     }, [])
+
+//     if (loading) return <p>Loading...</p>
+//     if (error) return <p>Error: {error}</p>
+
+//     return (
+//     <>
+    
+//     <ul>
+//         {movies.map (prop => (
+//             <li key={prop.id}>{prop.title}</li>
+//         ))}
+
+//     </ul>
+    
+//     </>
+// )}
+    
+    
 
 // export const ApiTest = () => {
 //     const [ userData, setUser ] = useState([])
@@ -75,3 +103,4 @@ const NotFound = () =>  {
 
 //     )
 // }
+

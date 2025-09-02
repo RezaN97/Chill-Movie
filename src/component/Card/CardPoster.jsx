@@ -27,7 +27,6 @@ const CardPoster = () => {
     <NewMovie />
     <BtnArrowRight />
     
-    {/* <BlueLabel className="left-[7vw] bottom-[-92vh]"/> */}
     
 
     </>
@@ -67,7 +66,7 @@ export const TopMovie = () => {
     </div>
 
     {/* fullscreen */}
-    <div className=" max-sm:hidden  w-[1440px] h-[512px] px-[80px] py-[40px] gap-[32px]">
+    <div className=" max-sm:hidden  w-full h-[512px] px-[80px] py-[40px] gap-[32px]">
         <h2 className='w-[520px] h-[35px] font-bold text-white text-[32px]'>Top Rating Film dan Series Hari ini</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">
@@ -128,7 +127,7 @@ export const TrendingMovie = () => {
     </div>
 
     {/* fullscreen */}
-    <div className="max-sm:hidden  w-[1440px] h-[512px] px-[80px] py-[40px] gap-[32px]">
+    <div className="max-sm:hidden  w-full h-[512px] px-[80px] py-[40px] gap-[32px]">
         <h2 className='w-[485px] h-[35px] font-bold text-white text-[32px]'>Film Trending</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">
@@ -202,7 +201,7 @@ export const NewMovie = () => {
     </div>
 
     {/* fullscreen */}
-    <div className="max-sm:hidden  w-[1440px] h-[512px] px-[80px] py-[40px] gap-[32px]">
+    <div className="max-sm:hidden  w-full h-[512px] px-[80px] py-[40px] gap-[32px]">
         <h2 className='w-[485px] h-[35px] font-bold text-white text-[32px]'>Rilis Baru</h2>
          {/* card fullscreen */}
          <div className="w-[1280px] h-[385px] gap-[28px] flex mt-5">

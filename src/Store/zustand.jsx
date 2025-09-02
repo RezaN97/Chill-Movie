@@ -1,4 +1,6 @@
 import { create } from 'zustand'
+import React,{ useState } from 'react'
+import { getData } from '../service/api/apiCRUD'
 
 
 
@@ -48,6 +50,25 @@ export const BearsCounter = () => {
        </> 
     )
 }
+
+// Initial API from MOCK API
+
+// const [endpoint,setEndPoint] = useState('info')
+// export const StoreMockapi = create((set) => ({
+//     mockapiData:[],
+//     error: null,
+
+//     getApiData: async () => {
+//         set({error: null})
+//         try {
+//             const res = getData(endpoint)
+//             set({ mockapiData: res.data})
+//         } catch (err) {
+//             set({ error: err.message })
+//         }
+//     }
+// }))
+    
 
 
 

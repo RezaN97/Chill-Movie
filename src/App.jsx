@@ -10,7 +10,7 @@ import Profile from './pages/Profile.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Admin from './pages/Admin.jsx'
 import Film from './pages/Film.jsx'
-import Premium from './pages/premium.jsx'
+import Premium from './pages/Premium.jsx'
 
 function App() {
 

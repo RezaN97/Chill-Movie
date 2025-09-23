@@ -7,7 +7,7 @@ const DaftarSaya = () =>{
     return(
         <>
             <Navbar />
-                <div className="flex flex-col gap-16px sm:gap-[32px] sm:my-5 sm:px-[80px] w-[320.18px] sm:w-[1440px] h-[668px] sm:h-[699px]"> 
+                <div className="flex flex-col gap-16px sm:gap-[32px] sm:my-5 sm:px-[30px] w-[320.18px] sm:w-full h-[668px] sm:h-[699px]"> 
                     <h1 className="font-[700] m-[10px] text-[20px] sm:text-[32px] text-white">Daftar Saya</h1>
                     <CardFilm />
                 </div>

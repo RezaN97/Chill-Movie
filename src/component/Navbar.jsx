@@ -12,7 +12,7 @@ const Navbar = () => {
     return(
         <>
             <header className='bg-[#181A1C]  w-[100vw] h-[56px] sm:w-full sm:h-[94px] py-[6px] sm:py-[25px] px-[10px] sm:px-[8vw] sm:pr-50 gap-[12px] flex items-center justify-between '>
-                <div className='flex w-[268px] h-[44px] justify-evenly sm:gap-[5vw] sm:w-[520.55px] sm:h-[44px] mt-5 ' >
+                <div className='flex w-[268px] h-[44px] justify-evenly sm:gap-[5vw] sm:w-[520px] sm:h-[44px] mt-5 ' >
                     {/* logo */}
                     <NavLink to={'/home'}>
                         <div className="cursor-pointer w-[20px] h-[50px] sm:w-[103.55px] sm:h-[44px] mb-9">
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <NavLink to={'/daftarsaya'} className='list-none cursor-pointer in-hover:blue text-white md:w-[95px] max-sm:w-[53px] h-[14px] md:text-lg max-sm:text-[10px] hover:text-blue-800 font-medium'>Daftar Saya</NavLink>
                     </nav>
                 </div>
-                <div>
+                <div className='ml-130'>
                     <Dropdown />
                 </div>
             </header>

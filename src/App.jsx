@@ -1,25 +1,22 @@
 // import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router'
+import './App-style.css'
 import Home from './pages/Home.jsx'
 import Series from './pages/Series.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import DaftarSaya from './pages/DaftarSaya.jsx'
 import Profile from './pages/Profile.jsx'
-import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import NotFound from './pages/NotFound.jsx'
 import Admin from './pages/Admin.jsx'
 import Film from './pages/Film.jsx'
-import './App-style.css'
+import Premium from './pages/premium.jsx'
 
 function App() {
 
 
   return (
   <>
-   
-
-
-
   <Router>
     <Routes>
       <Route path='/' element={<Login />}/>
@@ -31,6 +28,8 @@ function App() {
       <Route path='/series' element={<Series />}/>
       <Route path='/film' element={<Film />}/>
       <Route path='/admin' element={<Admin />}/>
+      <Route path='/premium' element={<Premium />}/>
+
     </Routes>
   </Router>
 

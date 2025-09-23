@@ -23,9 +23,9 @@ const Dropdown = () => {
           <NavLink to='/profile' className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] items-center rounded text-white hover:text-blue-900 hover:bg-[#0d0e10]">
             <span><UserIcon className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px]"/></span> Profile Saya
           </NavLink>
-          <a href="#" className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] rounded text-white  hover:text-blue-900 hover:bg-[#0d0e10]">
+          <NavLink to='/premium' className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] rounded text-white  hover:text-blue-900 hover:bg-[#0d0e10]">
             <span><StarIcon className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px] "/></span> Ubah Premium
-          </a>
+          </NavLink>
           <NavLink to='/' className="flex w-[113px] sm:w-[156px] h-[32px] sm:h-[40px] px-[12px] py-[8px] gap-[5px] rounded text-white  hover:text-blue-900 hover:bg-[#0d0e10]">
             <span><LogoutIcon className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px]"/></span> Keluar
           </NavLink>
